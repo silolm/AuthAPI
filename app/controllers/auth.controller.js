@@ -24,7 +24,7 @@ exports.logIn = (req, res) => {
     const makeJWT = (items) => {
         if (items.length > 0) {
             const payload = {role: items[0].role, DNI: items[0].DNI};
-            const token = jwt.sign(payload, app.get('masterKey'), {expiresIn: 1500});
+            const token = jwt.sign(payload, app.get('masterKey'), {expiresIn: 150000000});
             res.json({token: token});
         } else
             res.json({mensaje: "Invalid username"});
